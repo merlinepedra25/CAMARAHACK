@@ -27,20 +27,20 @@ trap 'printf "\n";stop' 2
 banner() {
 printf "\e[1;92m   CAM HACK      \e[0m\n"
 printf " \n"
-
-printf "      ██████  █████  ███    ███        \n"
+printf " \e[33m \n"
+printf "     ██████  █████  ███    ███        \n"
 printf "     ██      ██   ██ ████  ████        \n"
 printf "     ██      ███████ ██ ████ ██        \n"
 printf "     ██      ██   ██ ██  ██  ██        \n"
 printf "      ██████ ██   ██ ██      ██        \n"
-printf "                                       \n"
-printf "                                       \n"
+printf "                                   \e[0m    \n"
+printf "   \e[95m                                     \n"
 printf "     ██   ██  █████   ██████ ██   ██   \n"
 printf "     ██   ██ ██   ██ ██      ██  ██    \n"
 printf "     ███████ ███████ ██      █████     \n"
 printf "     ██   ██ ██   ██ ██      ██  ██    \n"
 printf "     ██   ██ ██   ██  ██████ ██   ██   \n"
-printf "                                       \n"
+printf "                                     \e[0m  \n"
 printf "                                  _   _  \n"
 printf "        _______________          |*\_/*|________  \n"
 printf "       |  ___________  |        ||_/-\_|______  |  \n"
@@ -54,9 +54,8 @@ printf "         _|__|/ \|_|_............. _|________|_  \n"
 printf "       / ********** \            / ********** \  \n"
 printf "     /  ************  \        /  ************  \  \n"
 printf "     --------------------      --------------------  \n"
-                            
-
-printf " \e[1;77m tool created by KOMIK3R ,LiNuX-Mallu\e[0m \n"
+printf "       \n"                    
+printf " \e[1;77m Tool Created by Online Harking \e[0m \n"
 
 printf "\n"
 
