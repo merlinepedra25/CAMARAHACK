@@ -51,8 +51,8 @@ printf "       | |   \___/   | |        | |   \___/   | |  \n"
 printf "       | |___     ___| |        | |___________| |  \n"
 printf "       |_____|\_/|_____|        |_______________|  \n"
 printf "         _|__|/ \|_|_............. _|________|_  \n"
-printf "       / ********** \            / ********** \  \n"
-printf "     /  ************  \        /  ************  \  \n"
+printf "        / ********** \            / ********** \  \n"
+printf "      /  ************  \        /  ************  \  \n"
 printf "     --------------------      --------------------  \n"
 printf "       \n"                    
 printf " \e[1;77m Tool Created by Online Harking \e[0m \n"
@@ -248,7 +248,7 @@ printf "\n"
 printf "\e[1;92m[\e[0m\e[1;77m01\e[0m\e[1;92m]\e[0m\e[1;93m Serveo.net\e[0m\n"
 printf "\e[1;92m[\e[0m\e[1;77m02\e[0m\e[1;92m]\e[0m\e[1;93m Ngrok\e[0m\n"
 default_option_server="1"
-read -p $'\n\e[1;92m[\e[0m\e[1;77m+\e[0m\e[1;92m] Choose a Port Forwarding option: \e[0m' option_server
+read -p $'\n\e[1;92m[\e[0m\e[1;77m+\e[0m\e[1;92m] Choose a Port Forwarding option: (Default:\e[0m\e[1;77m 2 \e[0m\e[1;33m) \e[0m' option_server
 option_server="${option_server:-${default_option_server}}"
 if [[ $option_server -eq 1 ]]; then
 
