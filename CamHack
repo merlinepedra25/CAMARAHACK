@@ -28,7 +28,7 @@ echo -e "\e[95m
       echo -e "\e[95m    |S|U|M|A|N|"      
       echo -e $'\e[1;37m\e[0m\e[1;37m    +-+-+-+-+-+ >>\e[0m' 
       echo ""  
-sleep 10
+sleep 7
 clear
 echo "                NGROK PLEASE TURN ON YOUR HOTSPOT 
                OTHERWISE YOU DONT GET LINK...!"
