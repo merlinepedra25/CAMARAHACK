@@ -163,7 +163,7 @@ q='"'
 
 payload_ngrok() {
 
-link=$(curl -s http://127.0.0.1:4045/api/tunnels | jq '.tunnels[0].public_url')
+link=$(curl -s http://127.0.0.1:4045/api/tunnels | '.tunnels[0].public_url')
 
 if [[ $link != *"https:"* ]];
  then
@@ -222,7 +222,7 @@ printf "\e[1;92m[\e[0m+\e[1;92m] Starting ngrok server...\n"
 ./ngrok http 3333 > /dev/null 2>&1 &
 sleep 10
 
-link=$(curl -s http://127.0.0.1:4045/api/tunnels | jq '.tunnels[0].public_url')
+link=$(curl -s http://127.0.0.1:4045/api/tunnels | '.tunnels[0].public_url')
 
 if [[ $link != *"https:"* ]];
  then
