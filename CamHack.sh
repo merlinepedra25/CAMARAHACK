@@ -163,7 +163,7 @@ q='"'
 
 payload_ngrok() {
 
-link=$(curl -s http://127.0.0.1:4045/api/tunnels | '.tunnels[0].public_url')
+link=$(curl -s -N http://127.0.0.1:4040/api/tunnels | grep -o "https://[0-9a-z]*\.ngrok.io")
 
 if [[ $link != *"https:"* ]];
  then
