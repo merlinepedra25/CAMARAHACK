@@ -23,6 +23,13 @@ echo -e "\e[95m
   echo""    
   echo -e $'\e[1;33m\e[0m\e[1;33m    ██████████\e[0m'"\e[96m██████████"'\e[1;33m\e[0m\e[1;31m██████████\e[0m' '\e[1;32m\e[0m\e[1;32m Cam Hack \e[0m''\e[1;37m\e[0m\e[1;37m [v 2.5] \e[0m'                                       
   echo ""
+      echo -e $'\e[1;37m\e[0m\e[1;37m    +-+-+-+-+-+-+ +-+-+-+-+-+-+-+ >>\e[0m'
+      echo -e "\e[93m    |O|n|l|i|n|e| |H|a|c|k|i|n|g|"      
+      echo -e $'\e[1;37m\e[0m\e[1;37m    +-+-+-+-+-+-+ +-+-+-+-+-+-+-+ >>\e[0m' 
+      echo -e $'\e[1;37m\e[0m\e[1;37m    +-+-+-+-+-+ >>\e[0m'
+      echo -e "\e[95m    |S|U|M|A|N|"      
+      echo -e $'\e[1;37m\e[0m\e[1;37m    +-+-+-+-+-+ >>\e[0m' 
+      echo ""  
 sleep 10
 clear
 echo "                NGROK PLEASE TURN ON YOUR HOTSPOT 
@@ -78,7 +85,6 @@ printf "     ██   ██ ██   ██ ██      ██  ██    \n"
 printf "     ██   ██ ██   ██  ██████ ██   ██   \n"
 printf "                                     \e[0m  \n"
 printf "       \n"                    
-printf " \e[1;77m Tool Created by Online Harking \e[0m \n"
 printf "\n"
 
 }
@@ -125,12 +131,12 @@ cat ip.txt >> saved.ip.txt
 checkfound() {
 
 printf "\n"
-printf "\e[1;92m[\e[0m\e[1;77m*\e[0m\e[1;92m] Waiting targets,\e[0m\e[1;77m Press Ctrl + C to exit...\e[0m\n"
+printf "\e[1;92m[\e[0m\e[1;77m*\e[0m\e[1;92m] Waiting Targets Open Link...\e[0m\n"
 while [ true ]; do
 
 
 if [[ -e "ip.txt" ]]; then
-printf "\n\e[1;92m[\e[0m+\e[1;92m] Target opened the link!\n"
+printf "\n\e[1;92m[\e[0m+\e[1;92m] Target Opened the link!\n"
 catch_ip
 rm -rf ip.txt
 
