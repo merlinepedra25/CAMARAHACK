@@ -30,6 +30,8 @@ echo -e "\e[95m
       echo ""  
 sleep 7
 clear
+echo ""
+echo ""
 echo "   NGROK PLEASE TURN ON YOUR HOTSPOT OTHERWISE YOU DONT GET LINK...!"
 sleep 3
 clear
