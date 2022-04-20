@@ -309,18 +309,6 @@ sed 's+forwarding_link+'$send_link'+g' template.php > index.php
 
 start() {
 
-default_choose_sub="Y"
-default_subdomain="onlinehacking$RANDOM"
-
-printf '\e[1;33m[\e[0m\e[1;77m+\e[0m\e[1;33m] Choose subdomain? (Default:\e[0m\e[1;77m [Y/n] \e[0m\e[1;33m): \e[0m'
-read choose_sub
-choose_sub="${choose_sub:-${default_choose_sub}}"
-if [[ $choose_sub == "Y" || $choose_sub == "y" || $choose_sub == "Yes" || $choose_sub == "yes" ]]; then
-subdomain_resp=true
-printf '\e[1;33m[\e[0m\e[1;77m+\e[0m\e[1;33m] Subdomain: (Default:\e[0m\e[1;77m %s \e[0m\e[1;33m): \e[0m' $default_subdomain
-read subdomain
-subdomain="${subdomain:-${default_subdomain}}"
-fi
 
 server
 payload
