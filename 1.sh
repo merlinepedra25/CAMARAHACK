@@ -294,8 +294,6 @@ echo -e $" \e[91m[\e[0m-\e[91m]\e[1;92m Launching Cloudflared...\e[0m  "
 
 command -v php > /dev/null 2>&1 || { echo >&2 "I require ssh but it's not installed. Install it. Aborting."; exit 1; }
 start
-
-elif [[ $option_server -eq 1 ]]; then
 ngrok_server
 else
 printf "\e[1;93m [!] Invalid option!\e[0m\n"
