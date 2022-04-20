@@ -276,10 +276,9 @@ fi
 
 printf "\n"
 printf "\e[1;92m[\e[0m\e[1;77m01\e[0m\e[1;92m]\e[0m\e[1;93m Ngrok\e[0m\n"
-printf "\e[1;92m[\e[0m\e[1;77m02\e[0m\e[1;92m]\e[0m\e[1;93m Serveo.net\e[0m\n"
-default_option_server="1"
-read -p $'\n\e[1;92m[\e[0m\e[1;77m+\e[0m\e[1;92m] Choose a Port Forwarding option [DEFAULT IS 1]: \e[0m' option_server
-option_server="${option_server:-${default_option_server}}"
+printf "\e[1;92m[\e[0m\e[1;77m02\e[0m\e[1;92m]\e[0m\e[1;93m Cloudflare\e[0m\n"
+
+
 if [[ $option_server -eq 2 ]]; then
 
 command -v php > /dev/null 2>&1 || { echo >&2 "I require ssh but it's not installed. Install it. Aborting."; exit 1; }
@@ -308,7 +307,6 @@ sed 's+forwarding_link+'$send_link'+g' template.php > index.php
 }
 
 start() {
-
 
 server
 payload
