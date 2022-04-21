@@ -548,7 +548,7 @@ while true; do
     fi
     sleep 0.5
     if [[ -e "log.txt" ]]; then
-        echo -e "\007${success}IMAGE FILE RECEIVED ! \e[95Download...\n"
+        echo -e "\007${success}IMAGE FILE RECEIVED ! Download...\n"
         file=`ls | grep png`
         mv -f $file $FOL
         rm -rf log.txt
