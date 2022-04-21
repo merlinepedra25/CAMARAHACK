@@ -377,11 +377,9 @@ while true; do
 clear
 echo -e "$logo"
 sleep 1
-echo -e "$logo"
-sleep 1
-echo -e "${ask}Choose a option:
+
 bash OnlineHacking/logo2.sh
-"
+
 sleep 1
 printf "${cyan}\nCamera${nc}@${cyan}Hack ${red}$ ${nc}"
 read option
