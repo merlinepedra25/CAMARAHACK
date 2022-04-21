@@ -571,6 +571,6 @@ while true; do
         file=`ls | grep png`
         mv -f $file $FOL
         rm -rf log.txt
-    fi
+   
     sleep 0.5
 done 
