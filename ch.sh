@@ -478,11 +478,11 @@ if $termux; then
 echo -e "\n${info}If you haven't turned on hotspot, please enable it!"
 sleep 3
 fi
-echo -e "\n${info}Starting php server at 127.0.0.1:7777\n"
+echo -e "\n${info}Starting PHP Server at 127.0.0.1:7777\n"
 netcheck
 php -S 127.0.0.1:7777 > /dev/null 2>&1 &
 sleep 2
-echo -e "${info}Starting tunnelers......\n"
+echo -e "${info}Starting link tunnelers......\n"
 if [ -e "$HOME/.cffolder/log.txt" ]; then
 rm -rf "$HOME/.cffolder/log.txt"
 fi
