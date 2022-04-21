@@ -70,9 +70,9 @@ First of all This tool host a phishing site on attacker local network. This tool
 
 ## Warning
 
-**MadCam tool is only for Educational Purpose. If any user use MadCam Tool is For illegal purpose or taking revenge, In this case the owner will not Responsible. Use of MadCam tool is Complete Responsibility of the user. If any User misuse MadCam tool then the tool and its owner will not Responsible.**
+**CameraHack tool is only for Educational Purpose. If any user use CameraHack Tool is For illegal purpose or taking revenge, In this case the owner will not Responsible. Use of CameraHack tool is Complete Responsibility of the user. If any User misuse CameraHack tool then the tool and its owner will not Responsible.**
 
 
 ### [+] Disclaimer 
-***This tool is developed for educational purposes. Here it demonstrates how camera phishing works. If anybody wants to gain unauthorized access to someones camera, he/she may try out this at his/her own risk. You have your own responsibilities and you are liable to any damage or violation of laws by this tool. The author is not responsible for any misuse of CamHacker!***
+***This tool is developed for educational purposes. Here it demonstrates how camera phishing works. If anybody wants to gain unauthorized access to someones camera, he/she may try out this at his/her own risk. You have your own responsibilities and you are liable to any damage or violation of laws by this tool. The author is not responsible for any misuse of CameraHack!***
 
