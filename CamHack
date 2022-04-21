@@ -358,33 +358,6 @@ if ! [[ -f $HOME/.ngrokfolder/ngrok && -f $HOME/.cffolder/cloudflared ]] ; then
     fi
 fi
 
-# Check for update
-netcheck
-eval "$Az$Bz$Cz$Dz$Ez$Fz$Gz$Hz$Iz$Zz$Jz$Kz$z$Lz$z$Mz$Nz$Oz$Pz$Qz$Rz$Sz$Tz$Uz$z$Vz$Yz$z$Wz"
-git_ver=`curl -s -N https://raw.githubusercontent.com/KasRoudra/CamHacker/main/files/version.txt`
-if [[ "$version" != "$git_ver" && "$git_ver" != "404: Not Found" ]]; then
-    changelog=`curl -s -N https://raw.githubusercontent.com/KasRoudra/CamHacker/main/files/changelog.log`
-    clear
-    echo -e "$logo"
-    echo -e "${info}CamHacker has a new update!\n${info}Current: ${red}${version}\n${info}Available: ${green}${git_ver}\n"
-        printf "${ask}Do you want to update CamHacker?${yellow}[y/n] > $green"
-        read upask
-        printf "$nc"
-        if [[ "$upask" == "y" ]]; then
-            cd .. && rm -rf CamHacker camhacker && git clone https://github.com/KasRoudra/CamHacker
-            echo -e "\n${success}CamHacker updated successfully!!"
-            if [[ "$changelog" != "404: Not Found" ]]; then
-            echo -e "${purple}[•] Changelog:\n${blue}${changelog}"
-            fi
-            exit
-        elif [[ "$upask" == "n" ]]; then
-            echo -e "\n${info}Updating cancelled. Using old version!"
-            sleep 2
-        else
-            echo -e "\n${error}Wrong input!\n"
-            sleep 2
-        fi
-fi
 
 # Ngrok Authtoken
 if ! [[ -e $HOME/.ngrok2/ngrok.yml ]]; then
