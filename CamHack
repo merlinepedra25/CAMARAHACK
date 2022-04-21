@@ -40,7 +40,7 @@ version="1.2.5"
 cwd=`pwd`
 
 # Logo 
-
+logo(){
 printf " \e[36m \n"
 printf "     ██████  ███████ ███    ███        \n"
 printf "     ██      ██   ██ ████  ████        \n"
@@ -56,8 +56,8 @@ printf "          ██   ██ ██   ██ ██      ██  ██    
 printf "          ██   ██ ██   ██  ██████ ██   ██   \n"
 printf "                                     \e[0m  \n"
 printf "       \n"                    
-printf "\n"
-
+printf "  \n"
+}
 
 # Package Installer
 pacin(){
