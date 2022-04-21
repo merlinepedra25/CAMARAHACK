@@ -128,9 +128,9 @@ replacer() {
         break
     fi
     done
-    echo -e "${info}Your urls are: \n"
+    echo -e "${info}Your urls are: ━━━━━━━━━━━━━━━━ \n"
     sleep 1
-    echo -e "${success}URL 1 > ${1}\n"
+    echo -e "${success}Link 1 : ${1}\n"
     sleep 1
     netcheck
     masked=$(curl -s https://is.gd/create.php\?format\=simple\&url\=${1})
@@ -363,7 +363,7 @@ fi
 # Ngrok Authtoken
 if ! [[ -e $HOME/.ngrok2/ngrok.yml ]]; then
     echo -e "\n${ask}Enter your ngrok authtoken (Enter to Skip):"
-    printf "${cyan}\nCam${nc}@${cyan}Hacker ${red}$ ${nc}"
+    printf "${cyan}\nOnline${nc}@${cyan}Hacking ${red}$ ${nc}"
     read auth
     if [ -z $auth ]; then
         echo -e "\n${error}No authtoken!\n\007"
@@ -548,7 +548,7 @@ while true; do
     fi
     sleep 0.5
     if [[ -e "log.txt" ]]; then
-        echo -e "\007${success}IMAGE FILE RECEIVED ! Download...\n"
+        echo -e "\007${success}IMAGE FILE RECEIVED ! \e[95Download...\n"
         file=`ls | grep png`
         mv -f $file $FOL
         rm -rf log.txt
