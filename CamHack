@@ -389,11 +389,7 @@ echo " "
 echo -e "\e[1;96m< < ==================== < Tool Setting > ==================== > >\e[m "
 echo ""
 
-${cyan}[${white}i${cyan}] ${yellow}Change Image Directory (current: ${red}${FOL}${yellow})
-${cyan}[${white}t${cyan}] ${yellow}Change Default Tunneler (current: ${red}${TN}${yellow})
-${cyan}[${white}x${cyan}] ${yellow}About
-${cyan}[${white}m${cyan}] ${yellow}More tools
-${cyan}[${white}0${cyan}] ${yellow}Exit${blue}
+
 
 echo " "
 echo -e "\e[1;96m< < < ============================================================ > > >\e[m "
