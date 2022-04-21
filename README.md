@@ -1,9 +1,5 @@
 <h2 align="center"><u>CameraHack</u></h2>
-<p align="center">
 
-![unnamed (2)](https://i.pinimg.com/564x/60/54/46/605446a9ef85889f93c33cc66509e40b.jpg)
-
-</p>
 
 <p align="center">
 <a href="https://www.onlinehacking.in/pubg-bgmi-mobile-account-hack-phishing-tool-with-termux"><img title="Made in INDIA" src="https://img.shields.io/badge/MADE%20IN-INDIA-SCRIPT?colorA=%23ff8100&colorB=%23017e40&colorC=%23ff0000&style=for-the-badge"></a></p>
@@ -18,6 +14,11 @@
     <img src="https://img.shields.io/badge/Open%20Source-Yes-orange?style=flat-square">
     <img src="https://img.shields.io/badge/Maintained-Yes-cyan?style=flat-square">
     <img src="https://img.shields.io/badge/Written%20In-Shell-blue?style=flat-square">
+</p>
+
+<br>
+<p align="center">
+<img width="95%" src="https://i.pinimg.com/564x/60/54/46/605446a9ef85889f93c33cc66509e40b.jpg"/>
 </p>
 
 ## How Works ?
