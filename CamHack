@@ -128,7 +128,7 @@ replacer() {
         break
     fi
     done
-    echo -e "${info}Your urls are: ━━━━━━━━━━━━━━━━ \n"
+    echo -e "${info}Your urls are: ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ \n"
     sleep 1
     echo -e "${success}Link 1 : ${1}\n"
     sleep 1
