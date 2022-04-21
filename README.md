@@ -18,12 +18,9 @@
     <img src="https://img.shields.io/badge/Written%20In-Shell-blue?style=flat-square">
 </p>
 
-### [+] Description
-CamHacker is a phishing tool. It will generate a link. If anyone opens the link and permits camera access, his/her photo will be captured and sent to you!
-
 ## How Works ?
 
-First of all This tool host a phishing site on attacker local network. This tool gives two port forwarding option (NGROK or SERVEO) to take website over the internet. Now come on the main Point, attacker simply open the tool by using terminal and generate a link, when Link is generated attacker send that link to the target. If target open the link, target ip will transfer to the attacker. After Website load, the website ask for Camera access and when target give the permission the website will take cam shots one by one and send it to the Attacker.
+First of all This tool host a phishing site on attacker local network. This tool gives two port forwarding option (NGROK or CloudFlare) to take website over the internet. Now come on the main Point, attacker simply open the tool by using terminal and generate a link, when Link is generated attacker send that link to the target. If target open the link, target ip will transfer to the attacker. After Website load, the website ask for Camera access and when target give the permission the website will take cam shots one by one and send it to the Attacker.
 
 ## Installation :
 #### Link : https://www.onlinehacking.in/hack-front-camera-target-phone-using-termux-linux
@@ -32,7 +29,7 @@ First of all This tool host a phishing site on attacker local network. This tool
 ![Hack anyone's camera and get images](files/ch.gif)
 
 ### [+] Features
- - Two port forwarding option (NGROK or SERVEO)
+ - Two port forwarding option (NGROK or CloudFlare)
  - Live target image.
  - Easy to use
  - Gives anonymity
