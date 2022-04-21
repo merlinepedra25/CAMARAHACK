@@ -377,8 +377,6 @@ while true; do
 clear
 echo -e "$logo"
 sleep 1
-echo -e "${ask}Choose a option:
-
 echo -e "\e[1;96m< < ==================== < Phishing Page > ==================== > >\e[m "
 printf " \e[1;31m\e[0m\e[1;92m\e[0m\e[1;31m \e[0m\e[1;37;44m\e[0m " 
 echo " "
