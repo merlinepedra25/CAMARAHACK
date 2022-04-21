@@ -12,7 +12,7 @@ echo ""
 echo -e ""
 echo -e " \e[1;33m[\e[0m\e[1;77m~\e[0m\e[1;33m]\e[0m\e[1;32m \e[95m How To Install And Use This Tool Play Video \e[0m"
 echo ""
-echo -e " \e[91m[\e[92m*\e[91m]\e[1;93m Video Link :\e[0m\e[1;36m https://play.onlinehacking.xyz/v/ZXBgvh  "
+echo -e " \e[91m[\e[92m*\e[91m]\e[1;93m Video Link :\e[0m\e[1;36m https://play.onlinehacking.xyz  "
 echo ""
 echo ""
 echo ""
@@ -47,12 +47,11 @@ sleep 2
 termux-setup-storage
 apt-get update -y
 apt-get upgrade -y
-pkg install php -y
-pkg install openssh -y
-apt-get install ruby
-gem install lolcat
-pkg install wget -y
-pkg install unzip -y
+apt install php -y
+apt install git -y
+apt install wget -y
+apt install curl -y
+apt install unzip -y
 clear
 echo '
       ---------------------------------   
