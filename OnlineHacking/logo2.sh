@@ -10,7 +10,7 @@ printf "\e[1;31m[\e[0m\e[1;92m03\e[0m\e[1;31m] \e[0m\e[1;37;41m Live Youtube \e[
 echo " "
 printf "\e[1;31m\e[0m\e[1;92m\e[0m\e[1;31m \e[0m\e[1;37;44m\e[0m"  
 echo " "
-echo -e "\e[1;96m< < =============== < Tool Setting > =============== > >\e[m "
+echo -e "\e[1;96m< < =============== < \e[95mTool Setting \e[96m> =============== > >\e[m "
 printf "\e[1;31m\e[0m\e[1;92m\e[0m\e[1;31m \e[0m\e[1;37;44m\e[0m"
 echo ""
 printf "\e[1;96m[\e[0m\e[1;92mi\e[0m\e[1;96m] \e[0m\e[1;33mChange Image Directory \e[32m(default: \e[91m/sdcard/Picturse \e[32m) \e[0m "
